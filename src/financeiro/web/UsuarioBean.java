@@ -18,7 +18,7 @@ import financeiro.usuario.UsuarioRN;
 public class UsuarioBean {
 
 	private Usuario usuario = new Usuario();
-	private String confirmaSenha;
+	private String confirmarSenha;
 	private List<Usuario> lista;
 	private String destinoSalvar;
 	private Conta conta = new Conta();
@@ -31,7 +31,7 @@ public class UsuarioBean {
 	}
 
 	public String editar() {
-		this.confirmaSenha = this.usuario.getSenha();
+		this.confirmarSenha = this.usuario.getSenha();
 		return "/publico/usuario";
 	}
 
@@ -39,7 +39,7 @@ public class UsuarioBean {
 		FacesContext context = FacesContext.getCurrentInstance();
 
 		String senha = this.usuario.getSenha();
-		if (!senha.equals(this.confirmaSenha)) {
+		if (!senha.equals(this.confirmarSenha)) {
 			FacesMessage facesMessage = new FacesMessage(
 					"A senha não foi confirmada corretamente");
 			context.addMessage(null, facesMessage);
@@ -104,12 +104,12 @@ public class UsuarioBean {
 		this.usuario = usuario;
 	}
 
-	public String getConfirmaSenha() {
-		return confirmaSenha;
+	public String getConfirmarSenha() {
+		return confirmarSenha;
 	}
 
-	public void setConfirmaSenha(String confirmaSenha) {
-		this.confirmaSenha = confirmaSenha;
+	public void setConfirmarSenha(String confirmaSenha) {
+		this.confirmarSenha = confirmaSenha;
 	}
 
 	public String getDestinoSalvar() {
